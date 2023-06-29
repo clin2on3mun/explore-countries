@@ -10,7 +10,7 @@ const Home = () => {
   const [search, setSearch] = useState('');
   const navigate = useNavigate();
   const filtered = countries.filter((country) => (
-    country.region.toLowerCase().includes(search.toLowerCase())));
+    country.name.common.toLowerCase().includes(search.toLowerCase())));
 
   if (isLoading) {
     return <div>loading.......</div>;

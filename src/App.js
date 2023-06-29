@@ -17,7 +17,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route index element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/country/:countryCode" element={<Showcountry />} />
         </Routes>
       </BrowserRouter>
