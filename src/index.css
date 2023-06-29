@@ -29,12 +29,12 @@ h1 {
 }
 
 .icons{
-  color:white;
+  color:git white;
   font-size: 1.3em;
 }
 
 .icon {
-  display:flex;
-  gap:15px;
+  display: flex;
+  gap: 15px;
   align-items: center;
 }
