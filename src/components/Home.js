@@ -26,35 +26,46 @@ const Home = () => {
   return (
     <>
       <div className="search-Region">
-        <input type="text" name="search" value={search} className="input-field" placeholder="search eg:Europe" onChange={(e) => handleChange(e)} />
-        <button type="button" className="btn">search</button>
+        <input
+          id="search-input"
+          type="text"
+          name="search"
+          value={search}
+          className="input-field"
+          placeholder="search eg:Europe"
+          onChange={handleChange}
+        />
+        <button type="button" className="btn" aria-label="Search">search</button>
       </div>
       <div className="container">
-        {filtered.length < 1 && <h2 className="Wrong-search">No results found</h2> }
-        {filtered.map((country) => (
-          <div
-            className="country-card"
-            key={country.cca3}
-            onClick={() => navigate(`/country/${country.cca3}`)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                navigate(`/country/${country.cca3}`);
-              }
-            }}
-            tabIndex={0}
-            role="button"
-          >
-            <BiRightArrowAlt className="arrow-right" />
-            <Country
-              name={country.name.common}
-              flag={country.flags.png}
-              number={country.population}
-            />
-          </div>
-        ))}
-
+        {search && filtered.length === 0 ? (
+          <h2 className="no-results">No results found</h2>
+        ) : (
+          filtered.map((country) => (
+            <div
+              className="country-card"
+              key={country.cca3}
+              onClick={() => navigate(`/country/${country.cca3}`)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  navigate(`/country/${country.cca3}`);
+                }
+              }}
+              tabIndex={0}
+              role="button"
+            >
+              <BiRightArrowAlt className="arrow-right" />
+              <Country
+                name={country.name.common}
+                flag={country.flags.png}
+                number={country.population}
+              />
+            </div>
+          ))
+        )}
       </div>
     </>
   );
 };
+
 export default Home;
