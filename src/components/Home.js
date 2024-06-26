@@ -12,13 +12,6 @@ const Home = () => {
   const filtered = countries.filter((country) => (
     country.name.common.toLowerCase().includes(search.toLowerCase())));
 
-  if (isLoading) {
-    return <div>loading.......</div>;
-  }
-  if (error) {
-    return <div>Error from Api call </div>;
-  }
-
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
@@ -37,6 +30,8 @@ const Home = () => {
         />
         <button type="button" className="btn" aria-label="Search">search</button>
       </div>
+      {isLoading ? <div>loading.......</div> : null}
+      {error ? <div>Error from Api call</div> : null}
       <div className="container">
         {search && filtered.length === 0 ? (
           <h2 className="no-results">No results found</h2>
