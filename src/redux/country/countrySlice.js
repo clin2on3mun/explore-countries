@@ -9,7 +9,7 @@ const initialState = {
 
 export const fetchCountries = createAsyncThunk('countries/fetchCountries', async () => {
   try {
-    const response = await fetch('https://restcountries.com/v3.1/all?fields=name,flag,population');
+    const response = await fetch('https://restcountries.com/v3.1/all?fields=name,flags,population');
     return response.json();
   } catch (error) {
     return error;
