@@ -40,7 +40,7 @@ const Home = () => {
             <div
               className="country-card"
               key={country.cca3}
-              onClick={() => navigate(`/country/${country.cca3}`)}
+              onClick={() => navigate(`/country/${country.name.common}`)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter') {
                   navigate(`/country/${country.name.common}`);
