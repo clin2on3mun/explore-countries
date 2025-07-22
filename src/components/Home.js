@@ -43,7 +43,7 @@ const Home = () => {
               onClick={() => navigate(`/country/${country.cca3}`)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter') {
-                  navigate(`/country/${country.cca3}`);
+                  navigate(`/country/${country.name.common}`);
                 }
               }}
               tabIndex={0}
