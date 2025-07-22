@@ -9,16 +9,16 @@ const initialState = {
 
 export const fetchCountries = createAsyncThunk('countries/fetchCountries', async () => {
   try {
-    const response = await fetch('https://restcountries.com/v3.1/all');
+    const response = await fetch('https://restcountries.com/v3.1/all?fields=name,flag,population');
     return response.json();
   } catch (error) {
     return error;
   }
 });
 
-export const showCountry = createAsyncThunk('countries/showCountry', async (code) => {
+export const showCountry = createAsyncThunk('countries/showCountry', async (name) => {
   try {
-    const response = await fetch(`https://restcountries.com/v3.1/alpha/${code}`);
+    const response = await fetch(`https://restcountries.com/v3.1/name/${name}`);
     return response.json();
   } catch (error) {
     return error.message;
